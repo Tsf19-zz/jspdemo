@@ -10,6 +10,13 @@
 </head>
 <body>
 
+<!-- This code creates an HTML form.
+The action will point back to the same JSP.
+So effectively, we are submitting form data back to ourselves.
+This form will read a text input from the user.
+The field is named "theItem"
+We'll read this field later to add it to your list. -->
+
 	<!-- STEP 1. Create a HTML Form -->
 	<form action="todolist_session_demo.jsp">
 		<label>Add New Item: </label> <input type="text" autofocus name="theItem" />
@@ -31,7 +38,7 @@
 
 		//See if there is a Form data to add
 		String theItem = request.getParameter("theItem");
-		if (theItem != null) {
+		if (theItem != null && (!theItem.trim().equals(""))) { // check for null or empty input string
 			items.add(theItem);
 		}
 	%>
@@ -49,3 +56,5 @@
 	</ol>
 </body>
 </html>
+
+<!--  -->
