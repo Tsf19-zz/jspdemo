@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
@@ -18,7 +19,8 @@
 		if(cookies != null) {
 			for(Cookie tempCookie : cookies) {
 				if("favLangCookie".equals(tempCookie.getName())) {
-					favLang = tempCookie.getValue();
+					//favLang = tempCookie.getValue();
+					favLang = URLDecoder.decode(tempCookie.getValue(),"UTF-8");
 					break;
 				}
 			}
